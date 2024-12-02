@@ -1,0 +1,187 @@
+[gd_scene load_steps=31 format=3 uid="uid://b0onjsmr6fq00"]
+
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_k1cq6"]
+[ext_resource type="Texture2D" uid="uid://cayndh6i7ca53" path="res://sprites/background_v2.png" id="2_oc6ij"]
+[ext_resource type="Script" path="res://scripts/ui/BackgroundScroll.gd" id="3_gqpsc"]
+[ext_resource type="PackedScene" uid="uid://b0ep4sqwwu8dm" path="res://scenes/player.tscn" id="4_ubrrm"]
+[ext_resource type="Script" path="res://scripts/Boss1.gd" id="6_fqtjt"]
+[ext_resource type="Texture2D" uid="uid://bbowlq51ogva" path="res://sprites/boss1_static.png" id="6_g4uyx"]
+[ext_resource type="Script" path="res://scripts/bullets/MoveCircle.gd" id="6_pq5tl"]
+[ext_resource type="Texture2D" uid="uid://305a076dhn63" path="res://sprites/big_explosion.png" id="7_w6gji"]
+[ext_resource type="AudioStream" uid="uid://bddxjmljqus6c" path="res://sfx/Battle Line v1_1.mp3" id="8_ck4s1"]
+[ext_resource type="Script" path="res://scripts/SoundEffect.gd" id="9_8eq4m"]
+[ext_resource type="Script" path="res://scripts/Music.gd" id="9_vw576"]
+[ext_resource type="PackedScene" uid="uid://dg5icmb35tjlr" path="res://scenes/screen_fade.tscn" id="10_3cwy7"]
+[ext_resource type="AudioStream" uid="uid://dhf0cf7721uw0" path="res://sfx/hitHurt.wav" id="10_lyw6t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nbw4j"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5wl"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wkm3g"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0c3gn"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83h81"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnhcj"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42k2i"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jri2i"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahj71"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0v4"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ami"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1jl7"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ksn"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(288, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymbvo"]
+atlas = ExtResource("7_w6gji")
+region = Rect2(384, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hijcc"]
+atlas = ExtResource("6_g4uyx")
+region = Rect2(0, 0, 91, 91)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbr57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83h81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnhcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42k2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jri2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahj71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7ami")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1jl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45ksn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymbvo")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hijcc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_he05o"]
+radius = 90.1998
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_k1cq6")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 450.0
+offset_bottom = 2000.0
+texture = ExtResource("2_oc6ij")
+stretch_mode = 1
+script = ExtResource("3_gqpsc")
+metadata/_edit_lock_ = true
+
+[node name="ScreenBorders" type="StaticBody2D" parent="."]
+collision_mask = 5
+metadata/_edit_lock_ = true
+
+[node name="Top" type="CollisionShape2D" parent="ScreenBorders"]
+shape = SubResource("WorldBoundaryShape2D_nbw4j")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBorders"]
+shape = SubResource("WorldBoundaryShape2D_yf5wl")
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBorders"]
+position = Vector2(450, 800)
+shape = SubResource("WorldBoundaryShape2D_wkm3g")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBorders"]
+position = Vector2(450, 800)
+shape = SubResource("WorldBoundaryShape2D_0c3gn")
+
+[node name="Player" parent="." instance=ExtResource("4_ubrrm")]
+position = Vector2(225, 520)
+
+[node name="MoveCircle" type="Marker2D" parent="."]
+script = ExtResource("6_pq5tl")
+speed = 15
+direction = 0
+direction_change = 1
+
+[node name="Boss1" type="CharacterBody2D" parent="MoveCircle" groups=["Bosses"]]
+position = Vector2(225, 120)
+script = ExtResource("6_fqtjt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MoveCircle/Boss1"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tbr57")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveCircle/Boss1"]
+shape = SubResource("CircleShape2D_he05o")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="MoveCircle/Boss1"]
+script = ExtResource("9_8eq4m")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="MoveCircle/Boss1"]
+stream = ExtResource("10_lyw6t")
+script = ExtResource("9_8eq4m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ck4s1")
+autoplay = true
+script = ExtResource("9_vw576")
+
+[node name="ScreenFade" parent="." instance=ExtResource("10_3cwy7")]

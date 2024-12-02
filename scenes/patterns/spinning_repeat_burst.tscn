@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dafmv5r8uptwg"]
+
+[ext_resource type="Script" path="res://scripts/bullets/SpinningRepeatBurst.gd" id="1_h50my"]
+
+[node name="SpinningRepeater" type="Marker2D"]
+script = ExtResource("1_h50my")

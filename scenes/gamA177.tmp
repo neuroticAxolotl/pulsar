@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0onjsmr6fq00"]
+
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_k1cq6"]
+[ext_resource type="Texture2D" uid="uid://cayndh6i7ca53" path="res://sprites/background_v2.png" id="2_oc6ij"]
+[ext_resource type="Script" path="res://scripts/BackgroundScroll.gd" id="3_gqpsc"]
+[ext_resource type="PackedScene" uid="uid://b0ep4sqwwu8dm" path="res://scenes/player.tscn" id="4_ubrrm"]
+[ext_resource type="Script" path="res://scripts/MoveWave.gd" id="5_qtnux"]
+[ext_resource type="Texture2D" uid="uid://bbowlq51ogva" path="res://sprites/boss1_static.png" id="6_g4uyx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nbw4j"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5wl"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wkm3g"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0c3gn"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_he05o"]
+radius = 90.1998
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_k1cq6")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 450.0
+offset_bottom = 2000.0
+texture = ExtResource("2_oc6ij")
+stretch_mode = 1
+script = ExtResource("3_gqpsc")
+metadata/_edit_lock_ = true
+
+[node name="ScreenBorders" type="StaticBody2D" parent="."]
+collision_mask = 5
+metadata/_edit_lock_ = true
+
+[node name="Top" type="CollisionShape2D" parent="ScreenBorders"]
+shape = SubResource("WorldBoundaryShape2D_nbw4j")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBorders"]
+shape = SubResource("WorldBoundaryShape2D_yf5wl")
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBorders"]
+position = Vector2(450, 800)
+shape = SubResource("WorldBoundaryShape2D_wkm3g")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBorders"]
+position = Vector2(450, 800)
+shape = SubResource("WorldBoundaryShape2D_0c3gn")
+
+[node name="Player" parent="." instance=ExtResource("4_ubrrm")]
+
+[node name="MoveWave2" type="Marker2D" parent="."]
+script = ExtResource("5_qtnux")
+angle = 0.0
+amplitude = 10.0
+phase = 2.0
+
+[node name="MoveWave" type="Marker2D" parent="MoveWave2"]
+script = ExtResource("5_qtnux")
+amplitude = 110.0
+
+[node name="Boss1" type="CharacterBody2D" parent="MoveWave2/MoveWave" groups=["Bosses"]]
+position = Vector2(115, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="MoveWave2/MoveWave/Boss1"]
+scale = Vector2(2, 2)
+texture = ExtResource("6_g4uyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveWave2/MoveWave/Boss1"]
+shape = SubResource("CircleShape2D_he05o")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg5icmb35tjlr"]
+
+[ext_resource type="Texture2D" uid="uid://br5evce0q001g" path="res://sprites/a_single_white_pixel.png" id="1_t485v"]
+[ext_resource type="Script" path="res://scripts/ui/ScreenFade.gd" id="2_4dswi"]
+
+[node name="ScreenFade" type="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 450.0
+offset_bottom = 800.0
+mouse_filter = 2
+texture = ExtResource("1_t485v")
+script = ExtResource("2_4dswi")

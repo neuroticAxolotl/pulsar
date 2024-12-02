@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bono6modxg5jn"
+path="res://.godot/imported/Bouncing Baal v0_95.mp3-d1786aa87ef58f2c4a8d2cd8b27975d5.mp3str"
+
+[deps]
+
+source_file="res://sfx/Bouncing Baal v0_95.mp3"
+dest_files=["res://.godot/imported/Bouncing Baal v0_95.mp3-d1786aa87ef58f2c4a8d2cd8b27975d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

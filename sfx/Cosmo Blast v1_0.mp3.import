@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dckyh7kdvb4mm"
+path="res://.godot/imported/Cosmo Blast v1_0.mp3-10650549053e61e57288dd6c79513f67.mp3str"
+
+[deps]
+
+source_file="res://sfx/Cosmo Blast v1_0.mp3"
+dest_files=["res://.godot/imported/Cosmo Blast v1_0.mp3-10650549053e61e57288dd6c79513f67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

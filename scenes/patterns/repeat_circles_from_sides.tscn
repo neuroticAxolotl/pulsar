@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lfvohuxj3udp"]
+
+[ext_resource type="Script" path="res://scripts/bullets/RepeatCirclesFromSides.gd" id="1_dj2ye"]
+
+[node name="Marker2D" type="Marker2D"]
+script = ExtResource("1_dj2ye")

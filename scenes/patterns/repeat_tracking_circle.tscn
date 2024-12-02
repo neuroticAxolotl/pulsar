@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvhf5lohl8264"]
+
+[ext_resource type="Script" path="res://scripts/bullets/RepeatTrackingCircle.gd" id="1_0uvou"]
+
+[node name="Repeater" type="Marker2D"]
+script = ExtResource("1_0uvou")

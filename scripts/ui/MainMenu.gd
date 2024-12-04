@@ -6,7 +6,7 @@ func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	
 
-func _process(delta):
+func _process(_delta):
 	for sibling in get_tree().root.get_children():
 		if sibling.name not in ["MainMenu", "Settings", "Events"]:
 			sibling.queue_free()

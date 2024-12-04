@@ -19,3 +19,7 @@ Play it: https://neuroticaxolotl.itch.io/pulsar
 - more bosses
 - animations and other polish
 - figure out if there's a way to make the web version centered
+
+
+### todo:
+- add patterns to a group, delete all on scene change

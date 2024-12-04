@@ -185,3 +185,5 @@ autoplay = true
 script = ExtResource("9_vw576")
 
 [node name="ScreenFade" parent="." instance=ExtResource("10_3cwy7")]
+visible = false
+metadata/_edit_lock_ = true

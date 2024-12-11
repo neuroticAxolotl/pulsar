@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0onjsmr6fq00"]
+[gd_scene load_steps=30 format=3 uid="uid://b0onjsmr6fq00"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_k1cq6"]
 [ext_resource type="Texture2D" uid="uid://cayndh6i7ca53" path="res://sprites/background_v2.png" id="2_oc6ij"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b0ep4sqwwu8dm" path="res://scenes/player.tscn" id="4_ubrrm"]
 [ext_resource type="Script" path="res://scripts/Boss1.gd" id="6_fqtjt"]
 [ext_resource type="Texture2D" uid="uid://bbowlq51ogva" path="res://sprites/boss1_static.png" id="6_g4uyx"]
-[ext_resource type="Script" path="res://scripts/bullets/MoveCircle.gd" id="6_pq5tl"]
 [ext_resource type="Texture2D" uid="uid://305a076dhn63" path="res://sprites/big_explosion.png" id="7_w6gji"]
 [ext_resource type="AudioStream" uid="uid://bddxjmljqus6c" path="res://sfx/Battle Line v1_1.mp3" id="8_ck4s1"]
 [ext_resource type="Script" path="res://scripts/SoundEffect.gd" id="9_8eq4m"]
@@ -154,28 +153,24 @@ shape = SubResource("WorldBoundaryShape2D_0c3gn")
 [node name="Player" parent="." instance=ExtResource("4_ubrrm")]
 position = Vector2(225, 520)
 
-[node name="MoveCircle" type="Marker2D" parent="."]
-script = ExtResource("6_pq5tl")
-speed = 15
-direction = 0
-direction_change = 1
-
-[node name="Boss1" type="CharacterBody2D" parent="MoveCircle" groups=["Bosses"]]
-position = Vector2(225, 120)
+[node name="EyeBoss" type="CharacterBody2D" parent="." groups=["Bosses"]]
+position = Vector2(229, 163)
 script = ExtResource("6_fqtjt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MoveCircle/Boss1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EyeBoss"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tbr57")
 autoplay = "default"
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveCircle/Boss1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EyeBoss"]
 shape = SubResource("CircleShape2D_he05o")
+metadata/_edit_lock_ = true
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="MoveCircle/Boss1"]
+[node name="DeathSound" type="AudioStreamPlayer" parent="EyeBoss"]
 script = ExtResource("9_8eq4m")
 
-[node name="DamageSound" type="AudioStreamPlayer" parent="MoveCircle/Boss1"]
+[node name="DamageSound" type="AudioStreamPlayer" parent="EyeBoss"]
 stream = ExtResource("10_lyw6t")
 script = ExtResource("9_8eq4m")
 

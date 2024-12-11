@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var mouse_speed = 400
-var mouse_acceleration = 200
+var mouse_acceleration = 100
 
 var keyboard_speed = 300
 var keyboard_acceleration = 50
@@ -13,7 +13,7 @@ var allow_movement = true
 var parry_cooldown_remaining = 0
 var parry_cooldown_max = 0.38
 var parry_duration = 0
-var parry_duration_max = 0.1
+var parry_duration_max = 0.2
 
 
 var player_bullet = preload("res://scenes/player_bullet.tscn")
@@ -37,17 +37,22 @@ func _process(delta):
 	parry_cooldown_remaining -= delta
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if Settings.mouse_control == true:
 		var mouse_position = get_viewport().get_mouse_position()
-		var vector_toward_mouse = position.direction_to(mouse_position)
+		var direction_to_mouse = position.direction_to(mouse_position)
+		var distance_to_mouse = position.distance_to(mouse_position)
 		
-		if position.distance_to(mouse_position) > 5:
-			velocity.x = move_toward(velocity.x, mouse_speed * vector_toward_mouse.x, mouse_acceleration)
-			velocity.y = move_toward(velocity.y, mouse_speed * vector_toward_mouse.y, mouse_acceleration)
-		else:
-			velocity.x = move_toward(velocity.x, 0, mouse_acceleration)
-			velocity.y = move_toward(velocity.y, 0, mouse_acceleration)
+		# always move toward mouse
+		velocity.x = move_toward(velocity.x, mouse_speed * direction_to_mouse.x, mouse_acceleration)
+		velocity.y = move_toward(velocity.y, mouse_speed * direction_to_mouse.y, mouse_acceleration)
+		
+		# limit velocity to not go past mouse position
+		if distance_to_mouse < velocity.length() * delta:
+			velocity = velocity.limit_length(distance_to_mouse)
+		
+		
+	# keyboard controls
 	else:
 		var x_input = Input.get_axis("left", "right")
 		var y_input = Input.get_axis("up", "down")
@@ -59,6 +64,7 @@ func _physics_process(_delta):
 			velocity.x = move_toward(velocity.x, 0, keyboard_acceleration)
 			velocity.y = move_toward(velocity.y, 0, keyboard_acceleration)
 	
+	# movement gets disabled when player or boss dies
 	if allow_movement:
 		move_and_slide()
 

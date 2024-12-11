@@ -1,13 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://deyin4jjwwsxq"]
 
-[ext_resource type="Script" path="res://scripts/PathFollowLinear.gd" id="1_cwn14"]
+[ext_resource type="Script" path="res://scripts/attacks/PathFollowLinear.gd" id="1_cwn14"]
 
 [node name="PathFollowLinear" type="PathFollow2D"]
 rotates = false
 cubic_interp = false
 loop = false
 script = ExtResource("1_cwn14")
-
-[node name="_Timer_59540" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true

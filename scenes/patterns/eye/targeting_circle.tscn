@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd873122mlnsy"]
+
+[ext_resource type="PackedScene" uid="uid://dah63b64j0uom" path="res://scenes/patterns/path_target_player.tscn" id="1_gkujn"]
+[ext_resource type="PackedScene" uid="uid://deyin4jjwwsxq" path="res://scenes/patterns/follow_path.tscn" id="2_y624n"]
+[ext_resource type="PackedScene" uid="uid://bfo7r01okuybj" path="res://scenes/enemy_bullet.tscn" id="3_6m4fs"]
+
+[sub_resource type="Curve2D" id="Curve2D_iei56"]
+resource_local_to_scene = true
+
+[node name="TargetPlayer" instance=ExtResource("1_gkujn")]
+curve = SubResource("Curve2D_iei56")
+
+[node name="PathFollowLinear" parent="." index="0" instance=ExtResource("2_y624n")]
+
+[node name="EnemyBullet" parent="PathFollowLinear" index="0" instance=ExtResource("3_6m4fs")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="PathFollowLinear" index="1" instance=ExtResource("3_6m4fs")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="PathFollowLinear" index="2" instance=ExtResource("3_6m4fs")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="PathFollowLinear" index="3" instance=ExtResource("3_6m4fs")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="PathFollowLinear" index="4" instance=ExtResource("3_6m4fs")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="PathFollowLinear" index="5" instance=ExtResource("3_6m4fs")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="PathFollowLinear" index="6" instance=ExtResource("3_6m4fs")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="PathFollowLinear" index="7" instance=ExtResource("3_6m4fs")]
+position = Vector2(-22, -22)

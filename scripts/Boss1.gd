@@ -1,37 +1,49 @@
 extends CharacterBody2D
 
-var patterns = [
-		preload("res://scenes/patterns/spinning_repeat_burst.tscn"),
-		preload("res://scenes/patterns/repeat_tracking_circle.tscn"),
-		preload("res://scenes/patterns/repeat_circles_from_sides.tscn")
-]
-var attack_index = 0
-var attack_cooldown = 5
+
 var health = 30
+var times_repeated = 0
+
+
+# ATTACK 1
+var tracking_circle_scene = preload("res://scenes/patterns/eye/targeting_circle.tscn")
+var attack_1_delay = 0.4
+var attack_1_repeat_amount = 8
+
+
+# ATTACK 2
+
+# ATTACK 3
+
+
+
 
 
 func _ready():
 	# start attacking after a delay
-	get_tree().create_timer(1).timeout.connect(attack)
+	get_tree().create_timer(1).timeout.connect(attack_1)
 
 
-func attack():
+
+func attack_1():
 	if health > 0:
-		var new_attack = patterns[attack_index].instantiate() # pick a random attack
-		new_attack.position = global_position + Vector2(0, 15) # set position
-		get_tree().root.call_deferred("add_child",new_attack) # add to tree
-		#attack_cooldown = new_attack.get_meta("attack_cooldown") # get cooldown from metadata
+		var new_attack = tracking_circle_scene.instantiate()
+		new_attack.starting_position = position# set position to eye's pupil
 		
-		attack_index += 1
-		if attack_index > patterns.size()-1:
-			attack_index = 0
+		# stop here until inside tree
+		# should prevent random crash
+		while get_tree == null:
+			pass
 		
-		if "cooldown" in new_attack:
-			attack_cooldown = new_attack.cooldown
-		else:
-			attack_cooldown = 5
+		get_tree().root.call_deferred("add_child", new_attack)
 		
-		get_tree().create_timer(attack_cooldown).timeout.connect(attack) # attack again after cooldown ends
+		times_repeated += 1
+		
+		if times_repeated < attack_1_repeat_amount:
+			get_tree().create_timer(attack_1_delay).timeout.connect(attack_1)
+		elif times_repeated >= attack_1_repeat_amount:
+			times_repeated = 0 # reset when ending
+			get_tree().create_timer(1).timeout.connect(attack_1) # call attack 2
 
 
 func take_damage():

@@ -1,10 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://vcfngmjbdbe5"]
+[gd_scene load_steps=3 format=3 uid="uid://bjmujn7pb1ybv"]
 
-[ext_resource type="Script" path="res://scripts/bullets/MoveLinear.gd" id="1_qfucn"]
 [ext_resource type="PackedScene" uid="uid://bfo7r01okuybj" path="res://scenes/enemy_bullet.tscn" id="2_uw10y"]
 
+[sub_resource type="GDScript" id="GDScript_1ogwt"]
+script/source = "extends Marker2D
+
+class_name MoveLinear
+
+
+@export var speed = 200
+@export var direction = 90
+
+var velocity = Vector2.ZERO
+
+
+func _ready():
+	child_order_changed.connect(check_despawn)
+
+
+func check_despawn():
+	if get_child_count() == 0:
+		queue_free()
+
+
+func _physics_process(delta):
+	velocity = speed * Vector2.from_angle(deg_to_rad(direction)) * delta
+	position += velocity
+"
+
 [node name="MoveLinear" type="Marker2D"]
-script = ExtResource("1_qfucn")
+script = SubResource("GDScript_1ogwt")
 
 [node name="EnemyBullet" parent="." instance=ExtResource("2_uw10y")]
 position = Vector2(-32, 0)

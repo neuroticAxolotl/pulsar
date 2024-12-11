@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dah63b64j0uom"]
+
+[ext_resource type="Script" path="res://scripts/attacks/target_player.gd" id="1_vyndd"]
+
+[sub_resource type="Curve2D" id="Curve2D_tn56n"]
+resource_local_to_scene = true
+
+[node name="TargetPlayer" type="Path2D"]
+curve = SubResource("Curve2D_tn56n")
+script = ExtResource("1_vyndd")

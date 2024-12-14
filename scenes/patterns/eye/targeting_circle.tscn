@@ -6,6 +6,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_iei56"]
 resource_local_to_scene = true
+bake_interval = 512.0
 
 [node name="TargetPlayer" instance=ExtResource("1_gkujn")]
 curve = SubResource("Curve2D_iei56")

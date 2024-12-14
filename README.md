@@ -23,3 +23,7 @@ Play it: https://neuroticaxolotl.itch.io/pulsar
 
 ### todo:
 - add patterns to a group, delete all on scene change
+- fix things outside window not being cropped on web build
+- reduce cheese strats
+- make functional windows build
+

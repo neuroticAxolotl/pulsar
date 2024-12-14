@@ -241,3 +241,6 @@ offset_bottom = 38.0
 text = "X
 "
 script = ExtResource("14_p2qa2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

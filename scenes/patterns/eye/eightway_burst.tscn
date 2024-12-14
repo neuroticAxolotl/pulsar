@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwkmsqj2sheev"]
+
+[ext_resource type="PackedScene" uid="uid://deyin4jjwwsxq" path="res://scenes/patterns/follow_path.tscn" id="1_2wmfk"]
+[ext_resource type="Script" path="res://scripts/attacks/CheckDespawn.gd" id="1_lj541"]
+[ext_resource type="PackedScene" uid="uid://bfo7r01okuybj" path="res://scenes/enemy_bullet.tscn" id="2_yuies"]
+
+[sub_resource type="Curve2D" id="Curve2D_dhngl"]
+bake_interval = 512.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 800, 0)
+}
+point_count = 2
+
+[node name="EightwayBurst" type="Marker2D"]
+position = Vector2(229, 163)
+script = ExtResource("1_lj541")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D2" type="Path2D" parent="."]
+rotation = 0.785398
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D2" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D2/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D3" type="Path2D" parent="."]
+rotation = 1.5708
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D3" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D3/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D4" type="Path2D" parent="."]
+rotation = 2.35619
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D4" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D4/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D5" type="Path2D" parent="."]
+rotation = 3.14159
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D5" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D5/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D6" type="Path2D" parent="."]
+rotation = 3.92699
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D6" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D6/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D7" type="Path2D" parent="."]
+rotation = 4.71239
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D7" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D7/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3
+
+[node name="Path2D8" type="Path2D" parent="."]
+rotation = 5.49779
+curve = SubResource("Curve2D_dhngl")
+script = ExtResource("1_lj541")
+
+[node name="PathFollowLinear" parent="Path2D8" instance=ExtResource("1_2wmfk")]
+speed = 400
+
+[node name="EnemyBullet" parent="Path2D8/PathFollowLinear" instance=ExtResource("2_yuies")]
+lifetime = 3

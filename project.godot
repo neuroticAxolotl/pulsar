@@ -27,6 +27,8 @@ Events="*res://scripts/Events.gd"
 window/size/viewport_width=450
 window/size/viewport_height=800
 window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor]
 

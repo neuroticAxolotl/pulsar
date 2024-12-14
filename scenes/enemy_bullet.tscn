@@ -12,7 +12,7 @@ script = ExtResource("1_fbef0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_w4n1e")
-animation = &"darkblue"
+animation = &"green"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

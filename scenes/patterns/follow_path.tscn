@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/attacks/PathFollowLinear.gd" id="1_cwn14"]
 
-[node name="PathFollowLinear" type="PathFollow2D"]
+[node name="FollowPath" type="PathFollow2D"]
 rotates = false
 cubic_interp = false
 loop = false

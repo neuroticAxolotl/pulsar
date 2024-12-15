@@ -10,7 +10,8 @@ extends Area2D
 		"lightblue", 
 		"darkblue", 
 		"violet", 
-		"secret"
+		"secret",
+		"player",
 		) var color: String = "green"
 
 

@@ -14,5 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	modulate = lerp(modulate, target_color, fade_speed)
-
-

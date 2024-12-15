@@ -142,18 +142,17 @@ autoplay = "idle"
 [node name="ParryAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8nows")
 speed_scale = 5.0
-offset = Vector2(-1, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0.5, -4)
 shape = ExtResource("3_dfge3")
 
 [node name="ParryArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParryArea"]
-position = Vector2(0, 1)
+position = Vector2(1, 1)
 scale = Vector2(1.25893, 1.28125)
-polygon = PackedVector2Array(-1.58865, -14.0488, -5.56028, -10.1463, -11.9149, 3.12195, -11.9149, 7.02439, -8.73758, 10.9268, -7.14893, 10.9268, -2.38298, 6.2439, 2.38298, 6.2439, 6.3546, 10.9268, 7.94325, 10.9268, 11.1206, 7.02439, 11.1206, 3.12195, 4.76595, -10.1463, 0.794325, -14.0488)
+polygon = PackedVector2Array(-2.38298, -14.0488, -4.76595, -10.9268, -11.9149, 3.90244, -11.9149, 7.80488, -8.73758, 11.7073, -7.14893, 11.7073, -3.1773, 7.02439, 2.38298, 7.02439, 6.3546, 11.7073, 7.94325, 11.7073, 11.1206, 7.80488, 11.1206, 3.90244, 3.97163, -10.9268, 1.58865, -14.0488)
 
 [node name="ParrySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_atd0l")

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=42 format=3 uid="uid://df8k45b32026u"]
+[gd_resource type="SpriteFrames" load_steps=46 format=3 uid="uid://df8k45b32026u"]
 
 [ext_resource type="Texture2D" uid="uid://c1xlqu1if8crc" path="res://sprites/bullet_atlas.png" id="1_ny3v6"]
 
@@ -65,6 +65,22 @@ region = Rect2(16, 8, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2s3d"]
 atlas = ExtResource("1_ny3v6")
 region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxr5i"]
+atlas = ExtResource("1_ny3v6")
+region = Rect2(0, 80, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8xl5"]
+atlas = ExtResource("1_ny3v6")
+region = Rect2(8, 80, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvrff"]
+atlas = ExtResource("1_ny3v6")
+region = Rect2(16, 80, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bttt0"]
+atlas = ExtResource("1_ny3v6")
+region = Rect2(24, 80, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mbbh"]
 atlas = ExtResource("1_ny3v6")
@@ -230,6 +246,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxr5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8xl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvrff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bttt0")
+}],
+"loop": true,
+"name": &"player",
 "speed": 5.0
 }, {
 "frames": [{

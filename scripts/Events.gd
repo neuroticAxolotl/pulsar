@@ -1,19 +1,12 @@
 extends Node
 
-# Player
+
+@warning_ignore("unused_signal")
 signal player_died
 
-# Bosses
+@warning_ignore("unused_signal")
 signal boss_defeated
 
 
-func load_main_menu():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
-
-func load_game():
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
-
-
-func load_win_screen():
-	get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
+func load_scene_from_path(filepath):
+	get_tree().change_scene_to_file(filepath)

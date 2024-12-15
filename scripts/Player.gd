@@ -24,14 +24,15 @@ func _ready():
 
 
 func _process(delta):
-	if parry_cooldown_remaining <= 0 and Input.is_action_just_pressed("pulse"):
-		$ParryAnimation.play("default")
-		$ParrySound.play()
-		parry_duration = parry_duration_max
-		parry_cooldown_remaining = parry_cooldown_max
-	
-	if parry_duration > 0:
-		parry()
+	if allow_movement:
+		if parry_cooldown_remaining <= 0 and Input.is_action_just_pressed("pulse"):
+			$ParryAnimation.play("default")
+			$ParrySound.play()
+			parry_duration = parry_duration_max
+			parry_cooldown_remaining = parry_cooldown_max
+		
+		if parry_duration > 0:
+			parry()
 	
 	parry_duration -= delta
 	parry_cooldown_remaining -= delta
@@ -90,7 +91,7 @@ func parry():
 			area.queue_free()
 
 
+# makes player invincible and locks them in place
 func on_boss_defeated():
 	$CollisionShape2D.set_deferred("disabled", true)
 	allow_movement = false
-

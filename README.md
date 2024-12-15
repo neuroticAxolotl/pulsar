@@ -4,7 +4,7 @@ This was originally going to be a rhythm game, but apparently Godot isnt really 
 
 Made for [(Not) A Strict Jam #3](https://itch.io/jam/not-a-strict-jam-3).
 
-Play it: https://neuroticaxolotl.itch.io/pulsar
+https://neuroticaxolotl.itch.io/pulsar
 
 ## features
 - one (1) level/boss
@@ -22,8 +22,7 @@ Play it: https://neuroticaxolotl.itch.io/pulsar
 
 
 ### todo:
-- add patterns to a group, delete all on scene change
+- ~~add bullets to a group, delete all on scene change~~
 - fix things outside window not being cropped on web build
 - reduce cheese strats
 - make functional windows build
-

@@ -12,4 +12,4 @@ func fade_to_black():
 
 
 func start_game():
-	Events.load_game()
+	Events.load_scene_from_path("res://scenes/game.tscn")

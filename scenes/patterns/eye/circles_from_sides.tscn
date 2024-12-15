@@ -1,0 +1,390 @@
+[gd_scene load_steps=6 format=3 uid="uid://ms2d7iqw2x8i"]
+
+[ext_resource type="Script" path="res://scripts/attacks/CheckDespawn.gd" id="1_bhyqw"]
+[ext_resource type="PackedScene" uid="uid://deyin4jjwwsxq" path="res://scenes/patterns/follow_path.tscn" id="2_ocbex"]
+[ext_resource type="PackedScene" uid="uid://bfo7r01okuybj" path="res://scenes/enemy_bullet.tscn" id="3_hkxqc"]
+
+[sub_resource type="Curve2D" id="Curve2D_hup17"]
+bake_interval = 512.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -100, 0, 0, 0, 0, 0, 550, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_uvfcf"]
+bake_interval = 512.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 550, 0, 0, 0, 0, 0, -100, 0)
+}
+point_count = 2
+
+[node name="CirclesFromSides" type="Marker2D"]
+script = ExtResource("1_bhyqw")
+
+[node name="LeftToRight" type="Node2D" parent="."]
+script = ExtResource("1_bhyqw")
+
+[node name="Path2D" type="Path2D" parent="LeftToRight"]
+curve = SubResource("Curve2D_hup17")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="LeftToRight/Path2D" instance=ExtResource("2_ocbex")]
+position = Vector2(-100, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="LeftToRight/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D2" type="Path2D" parent="LeftToRight"]
+position = Vector2(0, 160)
+curve = SubResource("Curve2D_hup17")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="LeftToRight/Path2D2" instance=ExtResource("2_ocbex")]
+position = Vector2(-100, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="LeftToRight/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D3" type="Path2D" parent="LeftToRight"]
+position = Vector2(0, 320)
+curve = SubResource("Curve2D_hup17")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="LeftToRight/Path2D3" instance=ExtResource("2_ocbex")]
+position = Vector2(-100, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="LeftToRight/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D4" type="Path2D" parent="LeftToRight"]
+position = Vector2(0, 480)
+curve = SubResource("Curve2D_hup17")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="LeftToRight/Path2D4" instance=ExtResource("2_ocbex")]
+position = Vector2(-100, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="LeftToRight/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D5" type="Path2D" parent="LeftToRight"]
+position = Vector2(0, 640)
+curve = SubResource("Curve2D_hup17")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="LeftToRight/Path2D5" instance=ExtResource("2_ocbex")]
+position = Vector2(-100, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="LeftToRight/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D6" type="Path2D" parent="LeftToRight"]
+position = Vector2(0, 800)
+curve = SubResource("Curve2D_hup17")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="LeftToRight/Path2D6" instance=ExtResource("2_ocbex")]
+position = Vector2(-100, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="LeftToRight/Path2D6/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="RightToLeft" type="Node2D" parent="."]
+script = ExtResource("1_bhyqw")
+
+[node name="Path2D" type="Path2D" parent="RightToLeft"]
+position = Vector2(0, 80)
+curve = SubResource("Curve2D_uvfcf")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="RightToLeft/Path2D" instance=ExtResource("2_ocbex")]
+position = Vector2(550, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="RightToLeft/Path2D/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D2" type="Path2D" parent="RightToLeft"]
+position = Vector2(0, 240)
+curve = SubResource("Curve2D_uvfcf")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="RightToLeft/Path2D2" instance=ExtResource("2_ocbex")]
+position = Vector2(550, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="RightToLeft/Path2D2/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D3" type="Path2D" parent="RightToLeft"]
+position = Vector2(0, 400)
+curve = SubResource("Curve2D_uvfcf")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="RightToLeft/Path2D3" instance=ExtResource("2_ocbex")]
+position = Vector2(550, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="RightToLeft/Path2D3/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D4" type="Path2D" parent="RightToLeft"]
+position = Vector2(0, 560)
+curve = SubResource("Curve2D_uvfcf")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="RightToLeft/Path2D4" instance=ExtResource("2_ocbex")]
+position = Vector2(550, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="RightToLeft/Path2D4/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)
+
+[node name="Path2D5" type="Path2D" parent="RightToLeft"]
+position = Vector2(0, 720)
+curve = SubResource("Curve2D_uvfcf")
+script = ExtResource("1_bhyqw")
+
+[node name="FollowPath" parent="RightToLeft/Path2D5" instance=ExtResource("2_ocbex")]
+position = Vector2(550, 0)
+speed = 200
+
+[node name="EnemyBullet" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-32, 0)
+
+[node name="EnemyBullet2" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(32, 0)
+
+[node name="EnemyBullet3" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, 32)
+
+[node name="EnemyBullet4" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(0, -32)
+
+[node name="EnemyBullet5" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, -22)
+
+[node name="EnemyBullet6" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(22, 22)
+
+[node name="EnemyBullet7" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, 22)
+
+[node name="EnemyBullet8" parent="RightToLeft/Path2D5/FollowPath" instance=ExtResource("3_hkxqc")]
+position = Vector2(-22, -22)

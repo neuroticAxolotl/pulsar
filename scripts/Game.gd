@@ -1,10 +1,10 @@
 extends Node2D
 
-var main_menu_scene = preload("res://scenes/main_menu.tscn")
 
-@onready var tree = get_tree()
+# reuse tree
+@onready var tree = Events.tree
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Events.player_died.connect(on_player_death)
 	Events.boss_defeated.connect(on_boss_defeat)

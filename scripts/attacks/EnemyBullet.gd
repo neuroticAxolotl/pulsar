@@ -14,11 +14,17 @@ extends Area2D
 		"player",
 		) var color: String = "green"
 
+@export var parryable = false
 
 func _ready():
 	body_entered.connect(_on_body_entered)
-	$AnimatedSprite2D.play(color)
-	var despawn_timer = get_tree().create_timer(lifetime)
+	if parryable:
+		$AnimatedSprite2D.play("player")
+		add_to_group("Parryable")
+	else:
+		$AnimatedSprite2D.play(color)
+	
+	var despawn_timer = Events.tree.create_timer(lifetime)
 	despawn_timer.timeout.connect(despawn)
 
 

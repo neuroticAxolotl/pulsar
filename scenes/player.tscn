@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b0ep4sqwwu8dm"]
+[gd_scene load_steps=25 format=3 uid="uid://b0ep4sqwwu8dm"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_sl83l"]
 [ext_resource type="Texture2D" uid="uid://ckyvql4bfbtgb" path="res://sprites/ship.png" id="2_ckacp"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dd0xgbmphxglo" path="res://sfx/thump.wav" id="5_atd0l"]
 [ext_resource type="Script" path="res://scripts/SoundEffect.gd" id="7_vxq06"]
 [ext_resource type="AudioStream" uid="uid://52fpnnatxkxk" path="res://sfx/explosion.wav" id="8_ryo6q"]
+[ext_resource type="AudioStream" uid="uid://dhf0cf7721uw0" path="res://sfx/hitHurt.wav" id="9_byst7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g66yc"]
 atlas = ExtResource("2_mu7nw")
@@ -160,4 +161,8 @@ script = ExtResource("7_vxq06")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ryo6q")
+script = ExtResource("7_vxq06")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_byst7")
 script = ExtResource("7_vxq06")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-# reuse tree returned from initial call to maybe prevent random crash
-@onready var tree = get_tree()
+# reuse tree call
+@onready var tree = Events.tree
 
 var health = 30
 var times_repeated = 0 # tracks attack repetitions, set to zero before next pattern
@@ -22,7 +22,7 @@ var targeting_circle_repeat_amount = 8
 
 # ATTACK 3
 var circles_from_sides_scene = preload("res://scenes/patterns/eye/circles_from_sides.tscn")
-var circles_from_sides_delay = 0.8
+var circles_from_sides_delay = 1
 var circles_from_sides_repeat_amount = 4
 
 
@@ -101,7 +101,7 @@ func circles_from_sides():
 			tree.create_timer(circles_from_sides_delay).timeout.connect(circles_from_sides)
 		else:
 			times_repeated = 0 # reset for next pattern
-			tree.create_timer(1).timeout.connect(spinning_burst) # call next attack
+			tree.create_timer(2.5).timeout.connect(spinning_burst) # call next attack
 
 
 func stop_attacks():

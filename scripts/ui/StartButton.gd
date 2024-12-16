@@ -8,7 +8,7 @@ func _ready():
 
 func fade_to_black():
 	fader.target_color = Color.BLACK
-	get_tree().create_timer(0.8).timeout.connect(start_game)
+	Events.tree.create_timer(0.8).timeout.connect(start_game)
 
 
 func start_game():

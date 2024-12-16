@@ -7,6 +7,8 @@ func _ready():
 	
 
 func _process(_delta):
-	for sibling in get_tree().root.get_children():
+	# remove nodes not on whitelist
+	# makes bullets not appear in main menu after death
+	for sibling in Events.tree.root.get_children():
 		if sibling.name not in ["MainMenu", "Settings", "Events"]:
 			sibling.queue_free()

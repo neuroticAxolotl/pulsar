@@ -7,4 +7,4 @@ func _ready():
 
 
 func quit_game():
-	get_tree().quit(0)
+	Events.tree.quit(0)

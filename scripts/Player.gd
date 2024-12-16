@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+# reuse tree
+@onready var tree = Events.tree
+
+var health = 3
+var iframes = 0
+var max_iframes = 50
 
 var mouse_speed = 400
 var mouse_acceleration = 100
@@ -68,30 +74,55 @@ func _physics_process(delta):
 	# movement gets disabled when player or boss dies
 	if allow_movement:
 		move_and_slide()
+	
+	# when invincible after getting hit
+	if iframes > 0:
+		# toggle visibility every 5 frames for blinking effect
+		if iframes % 5 == 0:
+			visible = not visible
+		
+		iframes -= 1
+	# when not invincible
+	else:
+		visible = true
+		# re-enable collider only while alive
+		if allow_movement:
+			$CollisionShape2D.set_deferred("disabled", false)
+		
 
 
 # called by bullets
 func take_damage():
-	$CollisionShape2D.set_deferred("disabled", true)
-	Events.player_died.emit()
-	$ShipAnimation.play("death")
-	$DeathSound.play()
-	allow_movement = false
-	await get_tree().create_timer(0.5).timeout
-	queue_free()
+	if iframes <= 0:
+		$CollisionShape2D.set_deferred("disabled", true)
+		health -= 1
+		$DamageSound.play()
+		iframes = max_iframes
+	
+	# on death effects
+	if health <= 0:
+		iframes = 0 # disables blinking
+		$CollisionShape2D.set_deferred("disabled", true)
+		Events.player_died.emit()
+		$ShipAnimation.play("death")
+		$DeathSound.play()
+		allow_movement = false
+		await tree.create_timer(0.5).timeout
+		queue_free()
 
 
 func parry():
 	var areas = $ParryArea.get_overlapping_areas()
 	for area in areas:
-		if area.is_in_group("EnemyBullets"):
+		if area.is_in_group("Parryable"):
 			var new_bullet = player_bullet.instantiate()
 			new_bullet.position = area.global_position
-			get_tree().root.add_child(new_bullet)
+			tree.root.add_child(new_bullet)
 			area.queue_free()
 
 
 # makes player invincible and locks them in place
 func on_boss_defeated():
-	$CollisionShape2D.set_deferred("disabled", true)
 	allow_movement = false
+	$CollisionShape2D.set_deferred("disabled", true)
+	
